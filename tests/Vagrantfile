@@ -1,0 +1,11 @@
+Vagrant.configure(2) do |config|
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "test.yml"
+    ansible.galaxy_role_file = "roles.yml"
+  end
+
+  config.vm.define "test01" do |test01|
+    test01.vm.box = "jeqo/oracle-jdk-8-centos7"
+  end
+end

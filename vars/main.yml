@@ -1,0 +1,11 @@
+---
+# vars file for nexus
+nexus_user: nexus
+nexus_group: nexus
+
+nexus_base: /opt/nexus
+
+nexus_url_directory: https://sonatype-download.global.ssl.fastly.net/nexus/oss
+nexus_url: "{{ nexus_url_directory }}/nexus-{{ nexus_version }}-bundle.tar.gz"
+
+nexus_home: "{{ nexus_base }}/nexus-{{ nexus_version }}"

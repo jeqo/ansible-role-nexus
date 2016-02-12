@@ -1,0 +1,14 @@
+---
+#
+- debug:
+    msg: "nexus oss will be downloaded from {{ nexus_url }} to {{ nexus_home }}"
+
+- name: install nexus
+  unarchive:
+    src: "{{ nexus_url }}"
+    dest: "{{ nexus_base }}"
+    owner: "{{ nexus_user }}"
+    group: "{{ nexus_group }}"
+    copy: no
+    creates: "{{ nexus_home }}/bin/nexus"
+  become: yes

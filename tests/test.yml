@@ -1,0 +1,6 @@
+---
+# test units
+- name: test install nexus on centos 7 with openjdk jdk 8
+  hosts: test01
+  roles:
+    - role: nexus

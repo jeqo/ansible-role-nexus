@@ -1,0 +1,4 @@
+
+# Install a role from the Ansible Galaxy
+- src: https://github.com/jeqo/ansible-role-nexus
+  name: nexus

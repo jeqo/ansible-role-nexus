@@ -1,0 +1,18 @@
+---
+#
+- group:
+    name: "{{ nexus_group }}"
+    state: present
+
+- user:
+    name: "{{ nexus_user }}"
+    group: "{{ nexus_group }}"
+    home: "{{ nexus_base }}"
+    createhome: yes
+    state: present
+
+- name: install unarchive packages
+  package: name={{ item }} state=latest
+  with_items:
+    - unzip
+    - tar
