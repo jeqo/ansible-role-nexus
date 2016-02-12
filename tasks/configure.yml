@@ -24,7 +24,7 @@
       regexp: ^NEXUS_HOME=
       line: "NEXUS_HOME={{ nexus_home }}"
     -
-      regexp: ^PATH=\$NEXUS_HOME/bin:
+      regexp: ^PATH=\$NEXUS_HOME/bin
       line: PATH=$NEXUS_HOME/bin:$PATH
     -
       regexp: ^export NEXUS_HOME
