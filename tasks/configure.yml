@@ -1,0 +1,31 @@
+---
+#
+- name: configure nexus
+  template:
+    src: sonatype.properties.j2
+    dest: "{{ nexus_home }}/conf/sonatype.properties"
+
+- set_fact:
+    nexus_profile_file: "{{ nexus_base }}/.profile"
+  when: ansible_os_family == "Debian"
+
+- set_fact:
+    nexus_profile_file: "{{ nexus_base }}/.bash_profile"
+  when: ansible_os_family == "RedHat"
+
+- name: set nexus home
+  lineinfile:
+   dest: "{{ nexus_profile_file }}"
+   regexp: "{{ item.regexp }}"
+   line: "{{ item.line }}"
+   insertbefore: "export PATH"
+  with_items:
+    -
+      regexp: ^NEXUS_HOME=
+      line: "NEXUS_HOME={{ nexus_home }}"
+    -
+      regexp: ^PATH=\$NEXUS_HOME/bin:
+      line: PATH=$NEXUS_HOME/bin:$PATH
+    -
+      regexp: ^export NEXUS_HOME
+      line: export NEXUS_HOME

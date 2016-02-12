@@ -1,2 +1,12 @@
 ---
 # tasks file for nexus
+- include: prepare.ylm
+  become: yes
+
+- include: install.yml
+  become: yes
+  become_user: "{{ nexus_user }}"
+
+- include: configure.yml
+  become: yes
+  become_user: "{{ nexus_user }}"

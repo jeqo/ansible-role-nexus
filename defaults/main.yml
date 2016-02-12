@@ -1,3 +1,6 @@
 ---
 # defaults file for nexus
 nexus_version: 2.12.0-01
+
+nexus_server_port: 8081
+nexus_server_host: 0.0.0.0
