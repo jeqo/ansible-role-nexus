@@ -11,3 +11,4 @@
     group: "{{ nexus_group }}"
     copy: no
     creates: "{{ nexus_home }}/bin/nexus"
+  become: yes
