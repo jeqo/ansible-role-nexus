@@ -1,6 +1,6 @@
 ---
 # tasks file for nexus
-- include: prepare.ylm
+- include: prepare.yml
   become: yes
 
 - include: install.yml
