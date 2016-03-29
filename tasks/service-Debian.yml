@@ -1,0 +1,12 @@
+---
+
+
+- name: configure service
+  template:
+    src: nexus-init.j2
+    dest: /etc/init.d/nexus
+    mode: "u+x"
+
+- name: start service
+  command: update-rc.d nexus defaults
+  ignore_errors: yes

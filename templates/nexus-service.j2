@@ -1,0 +1,9 @@
+[Unit]
+Description=Nexus Daemon
+
+[Service]
+ExecStart={{ nexus_home }}/bin/nexus start
+User={{ nexus_user }}
+
+[Install]
+WantedBy=multi-user.target
