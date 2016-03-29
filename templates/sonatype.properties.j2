@@ -24,3 +24,10 @@ nexus-webapp-context-path=/nexus
 # Nexus section
 nexus-work={{ nexus_work }}
 runtime=${bundleBasedir}/nexus/WEB-INF
+
+{% if nexus_enable_oracle_maven %}
+# Comma separated list of hostnames that needs to accept circular redirections
+nexus.remoteStorage.enableCircularRedirectsForHosts=maven.oracle.com
+# Comma separated list of hostnames that benefit from using cookies
+nexus.remoteStorage.useCookiesForHosts=maven.oracle.com
+{% endif %}
